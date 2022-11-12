@@ -4,12 +4,6 @@
 <artifactId>BusinessTimeCalculator</artifactId>
 <version>1.0.0</version>
 <packaging>jar</packaging>
-
-	<dependencies>
-
-	</dependencies>
-<build>
-<finalName>BusinessTimeCalculator</finalName>
 <plugins>
 <plugin>
     <groupId>org.apache.maven.plugins</groupId>
@@ -24,7 +18,7 @@
                 <archive>
                 <manifest>
                     <mainClass>
-                        com.mercury.businesstime.Application
+                        com.baeldung.executable.ExecutableMavenJar
                     </mainClass>
                 </manifest>
                 </archive>
@@ -35,8 +29,8 @@
         </execution>
     </executions>
 </plugin>
-
 </plugins>
-</build>
+	<dependencies>
 
+	</dependencies>
 </project>
