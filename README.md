@@ -1,6 +1,6 @@
 # businessTimeCalculator
 A utility to calculate working seconds/minutes/hours/days between two given dates typically Service Level Agreement.
-you can compile this library or just copy and paste those java classes in you project then using this builder you can execute calculation :
+you can compile this library (mvn clean package) or just copy and paste those java classes in you project then using this builder you can execute calculation :
 
 		OperationAttributes attributi = new OperationAttributeBuilder()
 				.withDates(new String[] {"2020-03-02T09:00:00.000Z","2020-03-02T18:00:00.000Z",
