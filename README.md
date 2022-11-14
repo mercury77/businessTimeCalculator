@@ -1,5 +1,6 @@
 # businessTimeCalculator
-A utility to calculate working seconds/minutes/hours/days between two given dates typically Service Level Agreement
+A utility to calculate working seconds/minutes/hours/days between two given dates typically Service Level Agreement.
+you can compile this library or just copy and paste those java classes in you project then using this builder you can execute calculation :
 
 		OperationAttributes attributi = new OperationAttributeBuilder()
 				.withDates(new String[] {"2020-03-02T09:00:00.000Z","2020-03-02T18:00:00.000Z",
@@ -14,7 +15,7 @@ A utility to calculate working seconds/minutes/hours/days between two given date
 		ec.executeCalc();
     
     You can provide optionally BusinessHours, Time Precision, or DayHours only 
-e.g :
+
     		.withDates() parameter is mandatory.
     
     Minimum configuration reuired :
@@ -53,8 +54,6 @@ e.g :
    		.withDates(new String[] {"2020-03-02T09:00:00.000Z","2020-03-02T18:00:00.000Z"})
    
     
-
-
 		.withDates(new String[] {"2019-10-15T14:52:21.000Z","2019-10-15T14:59:21.000Z",
 					    "2019-10-15T15:04:33.000Z","2019-10-15T15:04:36.000Z",
 					    "2019-10-15T15:13:15.000Z","2019-10-15T15:13:19.000Z",
