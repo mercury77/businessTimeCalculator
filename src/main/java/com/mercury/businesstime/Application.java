@@ -8,8 +8,7 @@ public class Application {
 	public static void main(String[] args) {
 
 		OperationAttributes attributi = new OperationAttributeBuilder()
-				.withDates(new String[] {"2020-03-02T09:00:00.000Z","2020-03-02T18:00:00.000Z",
-						                 "2022-11-07T09:00:00.000Z","2022-11-09T18:00:00.000Z"})
+				.withDates(new String[] {"2022-11-11T09:31:00.000Z","2022-11-25T17:40:13.000Z"})
 				.withBusinessHours(new String[] { "09:00:00.000", "18:00:00.000" })
 				.withPrecision(true)
 				.withDayHours(9)
@@ -18,9 +17,6 @@ public class Application {
 		
 		EntryClass ec = new EntryClass(attributi);
 		ec.executeCalc();
-		
-		
-		
 	}
 
 }

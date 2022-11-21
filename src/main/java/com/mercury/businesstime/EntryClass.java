@@ -33,11 +33,11 @@ public void executeCalc() {
 		if (TIMEPRECISION) {
 			long temp_seconds = utilityclass.slacalculatorSeconds(startDate, endDate, BUSINESSHOURS);
 			totalseconds += temp_seconds;
-			System.out.println("Rev " + i + ", Minutes , " + (temp_seconds / 60) + " , Seconds , " + temp_seconds);
+			System.out.println("Rev " + i + ", Minutes : " + (float)(temp_seconds/60.0) + " , Seconds : " + temp_seconds);
 		} else {
 			long temp_minutes = utilityclass.slacalculatorMinute(startDate, endDate, BUSINESSHOURS);
 			totalminute += temp_minutes;
-			System.out.println("Rev " + i + ", Minutes , " + temp_minutes);
+			System.out.println("Rev " + i + ", Minutes : " + temp_minutes);
 		}
 
 	}
