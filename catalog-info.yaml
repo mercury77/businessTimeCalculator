@@ -1,0 +1,9 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: businessTimeCalculator
+  annotations:
+    github.com/project-slug: mercury77/businessTimeCalculator
+spec:
+  type: other
+  lifecycle: unknown
