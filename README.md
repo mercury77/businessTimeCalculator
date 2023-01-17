@@ -12,43 +12,43 @@ you can compile this library (mvn clean package) or just copy and paste those ja
 		
 		
 		EntryClass ec = new EntryClass(attributi);
-		ec.executeCalc();
+		  
+		  ec.executeCalc();
     
-    You can provide optionally BusinessHours, Time Precision, or DayHours only 
+                You can provide optionally BusinessHours, Time Precision, or DayHours only 
 
-    		.withDates() parameter is mandatory.
+    		  .withDates() parameter is mandatory.
     
-    Minimum configuration reuired :
+                Minimum configuration reuired :
     
-    
-		OperationAttributes attributi = new OperationAttributeBuilder()
+                OperationAttributes attributi = new OperationAttributeBuilder()
 				.withDates(new String[] {"2020-03-02T09:00:00.000Z","2020-03-02T18:00:00.000Z"})
 				.createAttribute();
 				
 		EntryClass ec = new EntryClass(attributi);
 		ec.executeCalc();
     
-   By definition:
-   Normal Business Hours means an eight (8) hour period between 6:00 am and 8:00 pm, Monday thru Friday, unless otherwise agreed to in writing by the parties.
-   by setting a time range beetween two dates you will be able to calculate only effective hours like this
+               By definition:
+               Normal Business Hours means an eight (8) hour period between 6:00 am and 8:00 pm, Monday thru Friday, unless otherwise agreed to in writing by                the parties.
+               by setting a time range beetween two dates you will be able to calculate only effective hours like this
    
 
-   		.withBusinessHours(new String[] { "06:00:00.000", "20:00:00.000" })
+   		 .withBusinessHours(new String[] { "06:00:00.000", "20:00:00.000" })
    
-  Time Precision will let you enable or disable calculation precision .
+               Time Precision will let you enable or disable calculation precision .
 
    
   		.withPrecision(true) 
    
-   will calculates how many Days Hours Minutes and Seconds beetween two given dates, with false no seconds will be calculated
+               will calculates how many Days Hours Minutes and Seconds beetween two given dates, with false no seconds will be calculated
    
-   Day Hours is the amount of hours that define your working Day e.g 08.00 A.M to 05.00 P.M can be 8 hours period.
+               Day Hours is the amount of hours that define your working Day e.g 08.00 A.M to 05.00 P.M can be 8 hours period.
    
    		.withDayHours(8)
    
-   Dates :
+               Dates :
    
-   You can provide a set of two dates or multiple set of two dates results will bu sum up.
+               You can provide a set of two dates or multiple set of two dates results will bu sum up.
 
    
    		.withDates(new String[] {"2020-03-02T09:00:00.000Z","2020-03-02T18:00:00.000Z"})
@@ -71,8 +71,9 @@ you can compile this library (mvn clean package) or just copy and paste those ja
 					    
 					    
 
- In this case you will retrive each delta express in minutes an seconds and a total sum up of all calculation
+                In this case you will retrive each delta express in minutes an seconds and a total sum up of all calculation
    
+                Thank you
    
     
     
