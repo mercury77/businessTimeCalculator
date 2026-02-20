@@ -30,6 +30,7 @@ public class BusinessTimeCalculator {
 	private int SODM = 0;
 	private int workingMinutes;
 	private String[] holidays;
+	private SimpleDateFormat holidayFormat = new SimpleDateFormat("dd-MM-yyyy");
 
 	/* Constructor */
 	public BusinessTimeCalculator(Date startDate, Date endDate, int offset, String[] businessHours, String[] holidays) {
@@ -76,7 +77,6 @@ public class BusinessTimeCalculator {
 			return false;
 		}
 		
-		SimpleDateFormat holidayFormat = new SimpleDateFormat("dd-MM-yyyy");
 		String currentDate = holidayFormat.format(startCal.getTime());
 		
 		for (String holiday : holidays) {
