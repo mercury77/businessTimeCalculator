@@ -9,12 +9,14 @@ public class EntryClass  {
 	private final String[] BUSINESSHOURS;
 	private final boolean TIMEPRECISION;
 	private final int DAYHOURS;
+	private final String[] HOLIDAYS;
 	
 public EntryClass(OperationAttributes attributes) {
 	this.DATES = attributes.dates;
 	this.BUSINESSHOURS = attributes.businessHours;
 	this.TIMEPRECISION = attributes.precision;
 	this.DAYHOURS = attributes.dayhours;
+	this.HOLIDAYS = attributes.holidays;
 }
 public void executeCalc() {
 	
@@ -31,11 +33,11 @@ public void executeCalc() {
 		Date startDate = utilityclass.createDate(DATES[i]);
 		Date endDate = utilityclass.createDate(DATES[i + 1]);
 		if (TIMEPRECISION) {
-			long temp_seconds = utilityclass.slacalculatorSeconds(startDate, endDate, BUSINESSHOURS);
+			long temp_seconds = utilityclass.slacalculatorSeconds(startDate, endDate, BUSINESSHOURS, HOLIDAYS);
 			totalseconds += temp_seconds;
 			System.out.println("Rev " + i + ", Minutes : " + (float)(temp_seconds/60.0) + " , Seconds : " + temp_seconds);
 		} else {
-			long temp_minutes = utilityclass.slacalculatorMinute(startDate, endDate, BUSINESSHOURS);
+			long temp_minutes = utilityclass.slacalculatorMinute(startDate, endDate, BUSINESSHOURS, HOLIDAYS);
 			totalminute += temp_minutes;
 			System.out.println("Rev " + i + ", Minutes : " + temp_minutes);
 		}

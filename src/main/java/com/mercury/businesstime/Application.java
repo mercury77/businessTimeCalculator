@@ -12,6 +12,7 @@ public class Application {
 				.withBusinessHours(new String[] { "09:00:00.000", "18:00:00.000" })
 				.withPrecision(true)
 				.withDayHours(9)
+				.withHolidays(new String[] { "15-11-2022", "16-11-2022" })
 				.createAttribute();
 		
 		

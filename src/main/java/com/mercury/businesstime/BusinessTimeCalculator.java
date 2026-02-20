@@ -29,9 +29,10 @@ public class BusinessTimeCalculator {
 	private int SODH = 0;
 	private int SODM = 0;
 	private int workingMinutes;
+	private String[] holidays;
 
 	/* Constructor */
-	public BusinessTimeCalculator(Date startDate, Date endDate, int offset, String[] businessHours) {
+	public BusinessTimeCalculator(Date startDate, Date endDate, int offset, String[] businessHours, String[] holidays) {
 		this.startDate = startDate;
 		this.endDate = endDate;
 
@@ -45,6 +46,7 @@ public class BusinessTimeCalculator {
 				: Integer.parseInt(splitted[0].substring(0, 2));
 		SODM = (splitted[1].substring(0, 0).equals("0")) ? Integer.parseInt(splitted[1].substring(1, 1))
 				: Integer.parseInt(splitted[1].substring(0, 2));
+		this.holidays = holidays;
 
 	}
 
@@ -61,6 +63,28 @@ public class BusinessTimeCalculator {
 		if (weekendDay != null && (weekendDay < Calendar.SUNDAY || weekendDay > Calendar.SATURDAY)) {
 			throw new IllegalArgumentException("Invalid weekend day selected");
 		}
+	}
+
+	/**
+	 * Helper method to check if the current date in startCal is a holiday.
+	 * Holidays are provided in the format "dd-MM-yyyy" (e.g., "25-12-2026").
+	 * 
+	 * @return <code>true</code> if the current date is in the holidays array
+	 */
+	private boolean isHoliday() {
+		if (holidays == null || holidays.length == 0) {
+			return false;
+		}
+		
+		SimpleDateFormat holidayFormat = new SimpleDateFormat("dd-MM-yyyy");
+		String currentDate = holidayFormat.format(startCal.getTime());
+		
+		for (String holiday : holidays) {
+			if (currentDate.equals(holiday)) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/**
@@ -122,7 +146,7 @@ public class BusinessTimeCalculator {
 
 		while (startCal.getTimeInMillis() <= endCal.getTimeInMillis()) {
 			int day = startCal.get(Calendar.DAY_OF_WEEK);
-			if ((weekendDay1 != null && day == weekendDay1) || (weekendDay2 != null && day == weekendDay2)) {
+			if ((weekendDay1 != null && day == weekendDay1) || (weekendDay2 != null && day == weekendDay2) || isHoliday()) {
 				startCal.add(Calendar.DAY_OF_MONTH, 1);
 				startCal.set(Calendar.HOUR_OF_DAY, SODH);
 				startCal.set(Calendar.MINUTE, SODM);
@@ -147,7 +171,7 @@ public class BusinessTimeCalculator {
 
 		while (startCal.getTimeInMillis() <= endCal.getTimeInMillis()) {
 			int day = startCal.get(Calendar.DAY_OF_WEEK);
-			if ((weekendDay1 != null && day == weekendDay1) || (weekendDay2 != null && day == weekendDay2)) {
+			if ((weekendDay1 != null && day == weekendDay1) || (weekendDay2 != null && day == weekendDay2) || isHoliday()) {
 				startCal.add(Calendar.DAY_OF_MONTH, 1);
 
 				startCal.set(Calendar.HOUR_OF_DAY, SODH);
@@ -173,7 +197,7 @@ public class BusinessTimeCalculator {
 		// TODO Optimize this loop
 		while (startCal.getTimeInMillis() <= endCal.getTimeInMillis()) {
 			int day = startCal.get(Calendar.DAY_OF_WEEK);
-			if ((weekendDay1 != null && day == weekendDay1) || (weekendDay2 != null && day == weekendDay2)) {
+			if ((weekendDay1 != null && day == weekendDay1) || (weekendDay2 != null && day == weekendDay2) || isHoliday()) {
 				startCal.add(Calendar.DAY_OF_MONTH, 1);
 				continue;
 			}
