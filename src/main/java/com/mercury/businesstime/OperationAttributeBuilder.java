@@ -7,6 +7,7 @@ public class OperationAttributeBuilder {
 	private boolean newPrecision = false;
 	private String[] newBusinessHours = { "09:00:00.000", "18:00:00.000" };
 	private int newDayHours = 9;
+	private String[] newHolidays = new String[0];
 
 	public OperationAttributeBuilder() {
 	}
@@ -31,8 +32,13 @@ public class OperationAttributeBuilder {
 		return this;
 	}
 
+	public OperationAttributeBuilder withHolidays(String[] newHolidays) {
+		this.newHolidays = newHolidays;
+		return this;
+	}
+
 	public OperationAttributes createAttribute() {
-		return new OperationAttributes(newBusinessHours, newDates, newPrecision, newDayHours);
+		return new OperationAttributes(newBusinessHours, newDates, newPrecision, newDayHours, newHolidays);
 	}
 
 }

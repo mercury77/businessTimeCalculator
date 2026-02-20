@@ -11,17 +11,17 @@ public class UtilityClass {
 		WORKINGDAYHOURS = workingdayhours;
 	}
 
-	public long slacalculatorSeconds(Date startDate, Date endDate, String[] businessHours) {
+	public long slacalculatorSeconds(Date startDate, Date endDate, String[] businessHours, String[] holidays) {
 		// ritorno D H M S
-		BusinessTimeCalculator wtc = new BusinessTimeCalculator(startDate, endDate, 0, businessHours);
+		BusinessTimeCalculator wtc = new BusinessTimeCalculator(startDate, endDate, 0, businessHours, holidays);
 		long deltaseconds = wtc.getSeconds();
 
 		return deltaseconds;
 	}
 
-	public long slacalculatorMinute(Date startDate, Date endDate, String[] businessHours) {
+	public long slacalculatorMinute(Date startDate, Date endDate, String[] businessHours, String[] holidays) {
 		// ritorno D H M
-		BusinessTimeCalculator wtc2 = new BusinessTimeCalculator(startDate, endDate, 0, businessHours);
+		BusinessTimeCalculator wtc2 = new BusinessTimeCalculator(startDate, endDate, 0, businessHours, holidays);
 		long deltaminute = (wtc2.getMinutes());
 
 		return deltaminute;

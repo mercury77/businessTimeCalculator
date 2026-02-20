@@ -8,6 +8,7 @@ you can compile this library (mvn clean package) or just copy and paste those ja
 				.withBusinessHours(new String[] { "09:00:00.000", "18:00:00.000" })
 				.withPrecision(true)
 				.withDayHours(9)
+				.withHolidays(new String[] { "25-12-2026", "31-01-2026" })
 				.createAttribute();
 		
 		
@@ -15,7 +16,7 @@ you can compile this library (mvn clean package) or just copy and paste those ja
 		  
 		  ec.executeCalc();
     
-                You can provide optionally BusinessHours, Time Precision, or DayHours only 
+                You can provide optionally BusinessHours, Time Precision, DayHours or Holidays only 
 
     		  .withDates() parameter is mandatory.
     
@@ -45,6 +46,15 @@ you can compile this library (mvn clean package) or just copy and paste those ja
                Day Hours is the amount of hours that define your working Day e.g 08.00 A.M to 05.00 P.M can be 8 hours period.
    
    		.withDayHours(8)
+   
+               Holidays :
+   
+               You can specify holidays that should be excluded from the calculation, just like weekends (Saturday and Sunday).
+               Holidays are specified in the format "dd-MM-yyyy" (e.g., "25-12-2026" for December 25, 2026).
+   
+   		.withHolidays(new String[] { "25-12-2026", "31-01-2026" })
+   
+               When a date falls on a holiday, it will be skipped during the business time calculation.
    
                Dates :
    
